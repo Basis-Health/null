@@ -51,6 +51,10 @@ func NewString(s string, valid bool) String {
 	}
 }
 
+func NewStringO(s string) String {
+	return NewString(s, s != "")
+}
+
 // UnmarshalJSON implements json.Unmarshaler.
 // It supports string and null input. Blank string input does not produce a null String.
 func (s *String) UnmarshalJSON(data []byte) error {

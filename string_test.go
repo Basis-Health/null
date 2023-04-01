@@ -29,6 +29,16 @@ func TestStringFrom(t *testing.T) {
 	}
 }
 
+func TestNewStringO(t *testing.T) {
+	str := NewStringO("test")
+	assertStr(t, str, "NewStringO() string")
+
+	zero := NewStringO("")
+	if zero.Valid {
+		t.Error("NewStringO(0)", "is valid, but should be invalid")
+	}
+}
+
 func TestStringFromPtr(t *testing.T) {
 	s := "test"
 	sptr := &s
